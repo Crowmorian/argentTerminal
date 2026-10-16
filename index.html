@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100e0c">
+  <meta name="description" content="Restore the five seals. Awaken the Argent vault.">
+  <title>Argent Terminal | Vault authorization</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./terminal.js"></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="./index.html" aria-label="Argent Terminal home"><span class="brand-mark" aria-hidden="true">⟐</span> ARGENT <span class="brand-light">TERMINAL</span></a>
+      <span class="system-state"><span class="status-dot"></span> LOCAL ARCHIVE / ONLINE</span>
+    </header>
+    <main class="terminal-layout">
+      <section class="lore" aria-labelledby="page-title">
+        <p class="eyebrow">Sentinel archive <span>/</span> Vault protocol 05</p>
+        <div class="seal-art" aria-hidden="true">
+          <svg viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="99"/><circle cx="110" cy="110" r="84"/><path d="M110 4v25m0 162v25M4 110h25m162 0h25M40 40l19 19m102 102 19 19M40 180l19-19M161 59l19-19"/><path class="sigil" d="m110 39 17 43 32-16-16 43 27 17-45 10-15 47-15-47-45-10 27-17-16-43 32 16z"/><path class="sigil-core" d="m110 76 12 34-12 38-12-38z"/></svg>
+          <span class="seal-caption">BY BLOOD. BY IRON. BY WILL.</span>
+        </div>
+        <h1 id="page-title">THE VAULT<br>REMAINS <em>SEALED.</em></h1>
+        <p class="intro">Five fragments of a broken covenant. One order that binds them.</p>
+        <p class="lore-copy">You have reached the last ward. Recover the authorization fragments from the scattered keys, decipher their order, and restore the covenant. Only then will the reliquary surrender its final cipher.</p>
+        <div class="instruction"><span class="instruction-icon" aria-hidden="true">⌁</span><p>Scan the physical keys with your phone.<br>Bring their fragments back to this terminal.</p></div>
+        <p class="archive-note">ARCHIVE RECORD <span>AT–V / 001</span></p>
+      </section>
+      <section class="console" aria-labelledby="console-title">
+        <div class="console-topline"><span>RELIQUARY ACCESS CONTROL</span><span aria-hidden="true">▰ ▰ ▱</span></div>
+        <div class="console-body">
+          <div id="authorization-heading">
+          <div class="console-heading"><span class="eyebrow">Authorization required</span><span class="small-id">[ 05 SEALS ]</span></div>
+          <h2 id="console-title">Restore the covenant</h2>
+          <p class="console-description">Enter all five fragments in the correct order.</p>
+          </div>
+          <form id="authorization-form" novalidate>
+            <div class="sequence-list">
+              <div class="sequence-row"><label for="sequence-1"><span class="row-number">01</span><span>FIRST SEAL</span></label><input id="sequence-1" name="sequence-1" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
+              <div class="sequence-row"><label for="sequence-2"><span class="row-number">02</span><span>SECOND SEAL</span></label><input id="sequence-2" name="sequence-2" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
+              <div class="sequence-row"><label for="sequence-3"><span class="row-number">03</span><span>THIRD SEAL</span></label><input id="sequence-3" name="sequence-3" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
+              <div class="sequence-row"><label for="sequence-4"><span class="row-number">04</span><span>FOURTH SEAL</span></label><input id="sequence-4" name="sequence-4" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
+              <div class="sequence-row"><label for="sequence-5"><span class="row-number">05</span><span>FINAL SEAL</span></label><input id="sequence-5" name="sequence-5" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
+            </div>
+            <p id="entry-help" class="entry-help">Use each complete identifier, including its hyphens.</p>
+            <p id="attempt-status" class="attempt-status" role="status" aria-live="polite">Awaiting authorization fragments.</p>
+            <button class="primary-button" type="submit" id="authorize-button" disabled>AUTHENTICATE SEQUENCE <span aria-hidden="true">→</span></button>
+            <button class="text-button" type="reset">CLEAR FRAGMENTS</button>
+          </form>
+          <section id="success-panel" class="success-panel" aria-labelledby="success-title" hidden>
+            <div class="success-emblem" aria-hidden="true">⟐</div>
+            <p class="eyebrow">All five seals restored</p>
+            <h3 id="success-title" tabindex="-1">The vault recognizes you.</h3>
+            <p id="success-copy"></p>
+            <div class="lock-code-container"><p>RELIQUARY LOCK CIPHER</p><output id="lock-code" class="lock-code" aria-label="Five-digit lock code"></output></div>
+            <p class="success-instruction">Enter this code on the physical lock.<br>Your reward awaits beyond the seal.</p>
+            <button type="button" id="restart-button" class="text-button">RESET TERMINAL</button>
+          </section>
+          <noscript><p class="error-note">Enable JavaScript to activate this terminal.</p></noscript>
+        </div>
+        <div class="console-bottomline"><span id="vault-state">VAULT STATUS: SEALED</span><span>ARGENT SYSTEMS</span></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>THE COVENANT ENDURES.</span><span>UNOFFICIAL FAN-MADE PARTY PUZZLE</span><span class="footer-coordinate">SECTOR 07 : ACTIVE</span></footer>
+  </div>
+</body>
+</html>
