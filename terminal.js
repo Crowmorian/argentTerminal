@@ -1,5 +1,5 @@
-import { puzzle } from './puzzle-config.js';
-import { getOrderedKeys, getRecognizedAuthorities, isValidAttempt, normalizeSequence, validatePuzzle } from './puzzle.js';
+import { puzzle } from './puzzle-config.js?v=sentinel-04';
+import { getOrderedKeys, getRecognizedAuthorities, isValidAttempt, normalizeSequence, validatePuzzle } from './puzzle.js?v=sentinel-04';
 
 const form = document.querySelector('#authorization-form');
 const inputs = [...form.querySelectorAll('input')];
@@ -16,6 +16,7 @@ function setStatus(heading, detail, isError = false) {
   document.querySelector('#status-heading').textContent = heading;
   document.querySelector('#status-detail').textContent = detail;
   status.classList.toggle('is-error', isError);
+  consolePanel.classList.toggle('is-denied', isError);
 }
 
 function updateRecognition(announce = true) {
@@ -98,6 +99,7 @@ form.addEventListener('submit', event => {
   success.hidden = false;
   consolePanel.setAttribute('aria-labelledby', 'success-title');
   consolePanel.classList.add('is-unlocked');
+  consolePanel.classList.remove('is-denied');
   document.body.classList.add('is-authorized');
   document.querySelector('#vault-state').textContent = 'RELIQUARY SEAL RELEASED';
   document.querySelector('#reliquary-state').textContent = 'RELIQUARY SEAL RELEASED';

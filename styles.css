@@ -201,6 +201,9 @@ input::placeholder { opacity: 1; color: #999d86; font-size: 12px; letter-spacing
 .attempt-status.is-error { border: 1px solid #d73d43; border-left: 4px solid var(--danger); background: #3b1015; }
 .attempt-status.is-error strong { color: #ff6868; font-weight: 600; }
 .attempt-status.is-error > span { color: #ff9b9b; }
+.console.is-denied { border-color: #4e2526; outline-color: var(--danger); box-shadow: 0 0 0 5px #150909, 0 0 0 6px #a33238, 0 0 30px #e22c3026, inset 0 0 0 1px #b94849; }
+.console.is-denied::before { border-color: #a33c40; }
+.console.is-denied .console-topline, .console.is-denied .console-bottomline { color: #ff9d9d; border-color: #a13a3d; background: #351015; }
 button, a, input { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 button:disabled { opacity: .5; cursor: wait; }
