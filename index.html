@@ -3,68 +3,109 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#100e0c">
-  <meta name="description" content="Restore the five seals. Awaken the Argent vault.">
-  <title>Argent Terminal | Vault authorization</title>
+  <meta name="theme-color" content="#111310">
+  <meta name="description" content="Argent D'Nur. Five sanctioned keys. One prescribed command order. Sentinel reliquary access is restricted by royal decree.">
+  <title>Sentinel Command Terminal | Argent D'Nur</title>
+  <link rel="icon" href="./assets/slayer-rune.png" type="image/png">
   <link rel="stylesheet" href="./styles.css">
   <script type="module" src="./terminal.js"></script>
 </head>
 <body>
-  <div class="ambient" aria-hidden="true"></div>
+  <div class="fortress-wall" aria-hidden="true"></div>
   <div class="site-shell">
-    <header class="masthead">
-      <a class="brand" href="./index.html" aria-label="Argent Terminal home"><span class="brand-mark" aria-hidden="true">⟐</span> ARGENT <span class="brand-light">TERMINAL</span></a>
-      <span class="system-state"><span class="status-dot"></span> LOCAL ARCHIVE / ONLINE</span>
-    </header>
-    <main class="terminal-layout">
-      <section class="lore" aria-labelledby="page-title">
-        <p class="eyebrow">Sentinel archive <span>/</span> Vault protocol 05</p>
-        <div class="seal-art" aria-hidden="true">
-          <svg viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="99"/><circle cx="110" cy="110" r="84"/><path d="M110 4v25m0 162v25M4 110h25m162 0h25M40 40l19 19m102 102 19 19M40 180l19-19M161 59l19-19"/><path class="sigil" d="m110 39 17 43 32-16-16 43 27 17-45 10-15 47-15-47-45-10 27-17-16-43 32 16z"/><path class="sigil-core" d="m110 76 12 34-12 38-12-38z"/></svg>
-          <span class="seal-caption">BY BLOOD. BY IRON. BY WILL.</span>
-        </div>
-        <h1 id="page-title">THE VAULT<br>REMAINS <em>SEALED.</em></h1>
-        <p class="intro">Five fragments of a broken covenant. One order that binds them.</p>
-        <p class="lore-copy">You have reached the last ward. Recover the authorization fragments from the scattered keys, decipher their order, and restore the covenant. Only then will the reliquary surrender its final cipher.</p>
-        <div class="instruction"><span class="instruction-icon" aria-hidden="true">⌁</span><p>Scan the physical keys with your phone.<br>Bring their fragments back to this terminal.</p></div>
-        <p class="archive-note">ARCHIVE RECORD <span>AT–V / 001</span></p>
+    <header class="masthead"><a class="brand" href="./index.html">SENTINEL COMMAND</a><p class="location">ARGENT D'NUR <span>// RESTRICTED ACCESS</span></p></header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="rune-disc" aria-hidden="true"><span class="rune-ticks"></span><span class="slayer-rune"></span></div>
+        <p class="eyebrow">BY DECREE OF THE ARGENTA CROWN</p>
+        <h1 id="page-title">Sentinel Command Terminal</h1>
+        <div class="engraved-rule" aria-hidden="true"><span></span></div>
       </section>
-      <section class="console" aria-labelledby="console-title">
-        <div class="console-topline"><span>RELIQUARY ACCESS CONTROL</span><span aria-hidden="true">▰ ▰ ▱</span></div>
-        <div class="console-body">
-          <div id="authorization-heading">
-          <div class="console-heading"><span class="eyebrow">Authorization required</span><span class="small-id">[ 05 SEALS ]</span></div>
-          <h2 id="console-title">Restore the covenant</h2>
-          <p class="console-description">Enter all five fragments in the correct order.</p>
+      <div class="terminal-layout">
+        <aside class="decree" aria-labelledby="decree-title">
+          <div class="plate-caption"><span>ROYAL DECREE</span><span aria-hidden="true">V</span></div>
+          <div class="decree-body">
+            <p class="eyebrow">RELIQUARY ACCESS</p>
+            <h2 id="decree-title">Under Sentinel<br>command authority.</h2>
+            <p>This reliquary is sealed under Sentinel command authority. Five sanctioned keys are required to restore access.</p>
+            <p>Present each authorization credential in the order prescribed by Sentinel command law.</p>
+            <div class="decree-rule" aria-hidden="true"></div>
+            <dl class="reliquary-readout">
+              <div><dt>RELIQUARY CONDITION</dt><dd id="reliquary-state">RELIQUARY SEALED</dd></div>
+              <div><dt>AUTHORIZATION KEYS REQUIRED</dt><dd>FIVE</dd></div>
+              <div><dt>SENTINEL COMMAND</dt><dd id="hierarchy-state">COMMAND HIERARCHY UNRESOLVED</dd></div>
+            </dl>
+            <p class="decree-signature">BY ROYAL COMMAND<br><span>THE LAW OF THE SENTINELS ENDURES.</span></p>
           </div>
-          <form id="authorization-form" novalidate>
-            <div class="sequence-list">
-              <div class="sequence-row"><label for="sequence-1"><span class="row-number">01</span><span>FIRST SEAL</span></label><input id="sequence-1" name="sequence-1" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
-              <div class="sequence-row"><label for="sequence-2"><span class="row-number">02</span><span>SECOND SEAL</span></label><input id="sequence-2" name="sequence-2" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
-              <div class="sequence-row"><label for="sequence-3"><span class="row-number">03</span><span>THIRD SEAL</span></label><input id="sequence-3" name="sequence-3" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
-              <div class="sequence-row"><label for="sequence-4"><span class="row-number">04</span><span>FOURTH SEAL</span></label><input id="sequence-4" name="sequence-4" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
-              <div class="sequence-row"><label for="sequence-5"><span class="row-number">05</span><span>FINAL SEAL</span></label><input id="sequence-5" name="sequence-5" type="text" placeholder="AWAITING FRAGMENT" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help"></div>
+        </aside>
+        <section class="console" aria-labelledby="console-title">
+          <div class="console-topline"><span>ARGENTA AUTHORITY</span><span>RELIQUARY ACCESS</span></div>
+          <div class="console-body">
+            <div id="authorization-heading">
+              <p class="eyebrow">FIVE SANCTIONED KEYS REQUIRED</p>
+              <h2 id="console-title">Sentinel authorization sequence</h2>
+              <p class="console-description">Present the complete designation carried by each sanctioned key.</p>
             </div>
-            <p id="entry-help" class="entry-help">Use each complete identifier, including its hyphens.</p>
-            <p id="attempt-status" class="attempt-status" role="status" aria-live="polite">Awaiting authorization fragments.</p>
-            <button class="primary-button" type="submit" id="authorize-button" disabled>AUTHENTICATE SEQUENCE <span aria-hidden="true">→</span></button>
-            <button class="text-button" type="reset">CLEAR FRAGMENTS</button>
-          </form>
-          <section id="success-panel" class="success-panel" aria-labelledby="success-title" hidden>
-            <div class="success-emblem" aria-hidden="true">⟐</div>
-            <p class="eyebrow">All five seals restored</p>
-            <h3 id="success-title" tabindex="-1">The vault recognizes you.</h3>
-            <p id="success-copy"></p>
-            <div class="lock-code-container"><p>RELIQUARY LOCK CIPHER</p><output id="lock-code" class="lock-code" aria-label="Five-digit lock code"></output></div>
-            <p class="success-instruction">Enter this code on the physical lock.<br>Your reward awaits beyond the seal.</p>
-            <button type="button" id="restart-button" class="text-button">RESET TERMINAL</button>
-          </section>
-          <noscript><p class="error-note">Enable JavaScript to activate this terminal.</p></noscript>
-        </div>
-        <div class="console-bottomline"><span id="vault-state">VAULT STATUS: SEALED</span><span>ARGENT SYSTEMS</span></div>
-      </section>
+            <form id="authorization-form" novalidate>
+              <div class="authority-register">
+                <div class="register-caption"><span>SANCTIONED AUTHORITIES</span><span id="recognized-count">00 / 05</span></div>
+                <ul id="authority-indicators" class="authority-indicators" aria-label="Recognized authorities; listed alphabetically, not in command order"></ul>
+                <p class="register-note">Authority recognition does not establish command order.</p>
+              </div>
+              <div class="sequence-list">
+                <div class="sequence-row">
+                  <label for="sequence-1"><span class="row-number" aria-hidden="true">I</span>FIRST AUTHORITY</label>
+                  <input id="sequence-1" name="sequence-1" type="text" placeholder="PRESENT CREDENTIAL" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help credential-state-1">
+                  <span id="credential-state-1" class="credential-state">AWAITING CREDENTIAL</span>
+                </div>
+                <div class="sequence-row">
+                  <label for="sequence-2"><span class="row-number" aria-hidden="true">II</span>SECOND AUTHORITY</label>
+                  <input id="sequence-2" name="sequence-2" type="text" placeholder="PRESENT CREDENTIAL" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help credential-state-2">
+                  <span id="credential-state-2" class="credential-state">AWAITING CREDENTIAL</span>
+                </div>
+                <div class="sequence-row">
+                  <label for="sequence-3"><span class="row-number" aria-hidden="true">III</span>THIRD AUTHORITY</label>
+                  <input id="sequence-3" name="sequence-3" type="text" placeholder="PRESENT CREDENTIAL" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help credential-state-3">
+                  <span id="credential-state-3" class="credential-state">AWAITING CREDENTIAL</span>
+                </div>
+                <div class="sequence-row">
+                  <label for="sequence-4"><span class="row-number" aria-hidden="true">IV</span>FOURTH AUTHORITY</label>
+                  <input id="sequence-4" name="sequence-4" type="text" placeholder="PRESENT CREDENTIAL" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help credential-state-4">
+                  <span id="credential-state-4" class="credential-state">AWAITING CREDENTIAL</span>
+                </div>
+                <div class="sequence-row">
+                  <label for="sequence-5"><span class="row-number" aria-hidden="true">V</span>FIFTH AUTHORITY</label>
+                  <input id="sequence-5" name="sequence-5" type="text" placeholder="PRESENT CREDENTIAL" autocomplete="off" autocapitalize="characters" spellcheck="false" required aria-describedby="entry-help credential-state-5">
+                  <span id="credential-state-5" class="credential-state">AWAITING CREDENTIAL</span>
+                </div>
+              </div>
+              <p id="entry-help" class="entry-help">Enter each complete identifier, including hyphens.</p>
+              <div id="attempt-status" class="attempt-status" role="status" aria-live="polite" aria-atomic="true">
+                <strong id="status-heading">AWAITING SENTINEL CREDENTIALS</strong>
+                <span id="status-detail">COMMAND HIERARCHY UNRESOLVED</span>
+              </div>
+              <button class="primary-button" type="submit" id="authorize-button" disabled>VERIFY AUTHORIZATION SEQUENCE <span aria-hidden="true">&#8594;</span></button>
+              <button class="text-button" type="reset">CLEAR CREDENTIALS</button>
+            </form>
+            <section id="success-panel" class="success-panel" aria-labelledby="success-title" hidden>
+              <p class="eyebrow">ALL FIVE SENTINEL AUTHORITIES VERIFIED</p>
+              <h2 id="success-title" tabindex="-1">Command hierarchy accepted</h2>
+              <p class="release-status">RELIQUARY SEAL RELEASED</p>
+              <div class="lock-code-container">
+                <p>MECHANICAL ACCESS CODE</p>
+                <output id="lock-code" class="lock-code" aria-label="Five-digit mechanical access code"></output>
+              </div>
+              <p class="success-instruction">Enter this code on the secured reliquary.</p>
+              <p id="success-copy" class="final-decree"></p>
+              <button type="button" id="restart-button" class="text-button">RESET SENTINEL COMMAND</button>
+            </section>
+            <noscript><p class="error-note">SENTINEL COMMAND UNAVAILABLE. Enable JavaScript to present credentials.</p></noscript>
+          </div>
+          <div class="console-bottomline"><span id="vault-state">RELIQUARY SEALED</span><span>SENTINEL COMMAND</span></div>
+        </section>
+      </div>
     </main>
-    <footer class="site-footer"><span>THE COVENANT ENDURES.</span><span>UNOFFICIAL FAN-MADE PARTY PUZZLE</span><span class="footer-coordinate">SECTOR 07 : ACTIVE</span></footer>
+    <footer class="site-footer"><span>ARGENT D'NUR // BY ROYAL COMMAND</span><span>UNOFFICIAL DOOM FAN EXPERIENCE</span></footer>
   </div>
 </body>
 </html>

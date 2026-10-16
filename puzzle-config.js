@@ -1,44 +1,48 @@
-// Public party-game data. GitHub Pages cannot keep browser-delivered answers secret.
-// The order of this array is the required order at the terminal.
+// GAME KEEPER CONFIGURATION — public static-site puzzle data.
+// 1. Edit each key's `sequence` below to change its full credential.
+// 2. Edit `order` to change the required sequence of key IDs.
+// 3. Edit `lockCode` to change the five-digit mechanical combination.
 export const puzzle = {
-  title: 'Argent Terminal',
+  title: 'Sentinel Command Terminal',
+  order: ['sec', 'eng', 'arm', 'bio', 'cmd'],
   lockCode: '48137',
-  successText: 'The covenant is restored. The vault yields to your command. Take this final cipher to the sealed reliquary and claim what lies within.',
+  successText: 'BY ORDER OF THE ARGENTA CROWN, ACCESS IS GRANTED.',
+  // This list is not the command order. NFC URLs keep their existing key IDs.
   keys: [
     {
       id: 'arm',
       name: 'Armory',
       sequence: 'ARM-57865423-AUTH',
-      designation: 'Weapons authorization',
-      clue: 'Before the march, the warrior must be armed. Let steel awaken the covenant.'
+      designation: 'Sentinel armory authority',
+      clue: 'By Sentinel decree: the armory shall remain secured until Engineering has restored the fortress machinery. Biolab clearance shall follow the release of arms.'
     },
     {
       id: 'bio',
-      name: 'Biologics',
+      name: 'Biolab',
       sequence: 'BIO-11842077-CLR',
-      designation: 'Biological clearance',
-      clue: 'Steel alone cannot carry the burden. After the armory, prove that living blood remains.'
+      designation: 'Sentinel biological clearance',
+      clue: 'By Sentinel decree: Biolab authority shall be presented after the armory has answered. No authority shall stand between this clearance and royal command.'
     },
     {
       id: 'eng',
       name: 'Engineering',
       sequence: 'ENG-44095162-OVR',
-      designation: 'Engine override',
-      clue: 'When steel and blood stand ready, wake the engine beneath the stone.'
+      designation: 'Sentinel engineering authority',
+      clue: 'By Sentinel decree: Engineering shall answer once Security has secured the approach. The armory shall await the restoration of the fortress machinery.'
     },
     {
       id: 'sec',
       name: 'Security',
       sequence: 'SEC-77230419-PRM',
-      designation: 'Security permission',
-      clue: 'The engine must burn before the wardens will release their seal. Command must wait.'
+      designation: 'Sentinel security authority',
+      clue: 'By Sentinel decree: first secure the approach. No other authority may precede Security when access to the reliquary is sought.'
     },
     {
       id: 'cmd',
       name: 'Command',
       sequence: 'CMD-90317655-MST',
-      designation: 'Master command',
-      clue: 'Armed, living, awakened, and permitted. Only then may the final command be spoken.'
+      designation: 'Royal command authority',
+      clue: 'By royal command: the four sanctioned authorities shall answer before Command. The final authority belongs to the Argenta Crown.'
     }
   ]
 };

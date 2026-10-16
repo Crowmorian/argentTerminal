@@ -3,7 +3,7 @@ export function normalizeSequence(value) {
 }
 
 export function validatePuzzle(config) {
-  if (!/^\d{5}$/.test(config.lockCode)) throw new Error('The lock code must contain exactly five digits.');
+  if (typeof config.lockCode !== 'string' || !/^\d{5}$/.test(config.lockCode)) throw new Error('The lock code must be a string containing exactly five digits.');
   if (!Array.isArray(config.keys) || config.keys.length !== 5) throw new Error('Exactly five keys are required.');
   const ids = new Set();
   const sequences = new Set();
@@ -14,9 +14,23 @@ export function validatePuzzle(config) {
     ids.add(key.id);
     sequences.add(sequence);
   }
+  if (!Array.isArray(config.order) || config.order.length !== 5 ||
+      new Set(config.order).size !== 5 || Array.from(config.order).some(id => !ids.has(id))) {
+    throw new Error('The command order must list each key ID exactly once.');
+  }
+}
+
+export function getOrderedKeys(config) {
+  return config.order.map(id => config.keys.find(key => key.id === id));
+}
+
+// Membership feedback deliberately ignores position and counts each authority once.
+export function getRecognizedAuthorities(entries, keys) {
+  const presented = new Set(entries.map(normalizeSequence));
+  return keys.filter(key => presented.has(normalizeSequence(key.sequence)));
 }
 
 export function isValidAttempt(entries, keys) {
   return Array.isArray(entries) && entries.length === keys.length &&
-    entries.every((entry, index) => normalizeSequence(entry) === normalizeSequence(keys[index].sequence));
+    keys.every((key, index) => normalizeSequence(entries[index]) === normalizeSequence(key.sequence));
 }
