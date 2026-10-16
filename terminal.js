@@ -1,5 +1,5 @@
-import { puzzle } from './puzzle-config.js?v=sentinel-04';
-import { getOrderedKeys, getRecognizedAuthorities, isValidAttempt, normalizeSequence, validatePuzzle } from './puzzle.js?v=sentinel-04';
+import { puzzle } from './puzzle-config.js?v=sentinel-05';
+import { getOrderedKeys, getRecognizedAuthorities, isValidAttempt, normalizeSequence, validatePuzzle } from './puzzle.js?v=sentinel-05';
 
 const form = document.querySelector('#authorization-form');
 const inputs = [...form.querySelectorAll('input')];
@@ -11,8 +11,16 @@ const consolePanel = document.querySelector('.console');
 const indicators = document.querySelector('#authority-indicators');
 let orderedKeys = [];
 let previousCount = 0;
+let rejectionTimer = null;
+const REJECTION_RESET_MS = 5000;
+
+function cancelRejectionReset() {
+  clearTimeout(rejectionTimer);
+  rejectionTimer = null;
+}
 
 function setStatus(heading, detail, isError = false) {
+  cancelRejectionReset();
   document.querySelector('#status-heading').textContent = heading;
   document.querySelector('#status-detail').textContent = detail;
   status.classList.toggle('is-error', isError);
@@ -76,11 +84,16 @@ form.addEventListener('input', () => {
 form.addEventListener('submit', event => {
   event.preventDefault();
   if (button.disabled) return;
+  cancelRejectionReset();
   const entries = inputs.map(input => normalizeSequence(input.value));
   inputs.forEach((input, index) => { input.value = entries[index]; });
   updateRecognition(false);
   if (!isValidAttempt(entries, orderedKeys)) {
     setStatus('AUTHORIZATION DENIED', 'THE PRESENTED ORDER VIOLATES SENTINEL COMMAND LAW. RELIQUARY REMAINS SEALED.', true);
+    rejectionTimer = setTimeout(() => {
+      rejectionTimer = null;
+      updateRecognition();
+    }, REJECTION_RESET_MS);
     const empty = inputs.find(input => !input.value);
     if (empty) empty.focus();
     return;

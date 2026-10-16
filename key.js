@@ -1,4 +1,4 @@
-import { puzzle } from './puzzle-config.js?v=sentinel-04';
+import { puzzle } from './puzzle-config.js?v=sentinel-05';
 
 const id = new URLSearchParams(location.search).get('key');
 const key = puzzle.keys.find(item => item.id === id);

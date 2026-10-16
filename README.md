@@ -43,6 +43,7 @@ The site URL is https://crowmorian.github.io/argentTerminal/. Write each NFC tag
 - Five distinct credentials are required. Repeating one valid credential does not count as multiple authorities.
 - Only the correct complete order releases the mechanical code.
 - Denial uses a generic response, retains entries, and never identifies an incorrect position.
+- Red denial feedback returns to the current recognition status after five seconds. Another failed attempt restarts the timer; editing, clearing, or successful authorization cancels it.
 - Clear removes credentials and recognition lights. Reset after success also removes the revealed code, restores the sealed readouts, and dims the rune.
 - Nothing is persisted in browser storage.
 
@@ -60,6 +61,6 @@ The three typefaces and their licenses are in `assets/fonts/`; system fallbacks 
 
 The repository is https://github.com/Crowmorian/argentTerminal and Pages deploys from `main`, `/ (root)`. Push changes to `main` to trigger publication. All application links are relative, so repository Pages URLs and custom domains work. `.nojekyll` preserves plain static hosting.
 
-The HTML stylesheet/script links and JavaScript imports share a `?v=sentinel-04` release tag. Bump it together when publishing changed assets so browsers load matching HTML, CSS, and scripts instead of mixing cached revisions.
+The HTML stylesheet/script links and JavaScript imports share a `?v=sentinel-05` release tag. Bump it together when publishing changed assets so browsers load matching HTML, CSS, and scripts instead of mixing cached revisions.
 
 Before an event, check desktop and 390px phone layouts, copy a credential from each key page, submit a wrong order, submit the correct order, and reset the terminal.
