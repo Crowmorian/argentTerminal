@@ -28,7 +28,7 @@
   --gold: #d3b975;
   --line: #5b5540;
   --bronze: #80704a;
-  --ember: #e6a16d;
+  --danger: #ff4b4b;
   --verified: #d0d9a1;
   --mono: 'IBM Plex Mono', 'Courier New', monospace;
   --display: 'Cinzel', Georgia, serif;
@@ -172,6 +172,7 @@ main { flex: 1; min-width: 0; }
 .console::before { content: ''; pointer-events: none; position: absolute; inset: 6px; border: 1px solid #645b3e; }
 .console-topline { margin: 7px 7px 0; padding: 13px 22px; border-bottom: 3px double var(--line); background: #080d0870; color: var(--gold); }
 .console-body { padding: 28px 30px 15px; }
+#authorization-heading { text-align: center; }
 .console h2 { font: 600 38px/1.1 var(--condensed); text-transform: uppercase; letter-spacing: .7px; margin: 11px 0 15px; }
 .console-description { font-size: 11px; line-height: 1.8; color: var(--muted); margin: 0 0 24px; }
 .authority-register { margin: 0 0 23px; padding: 14px 0 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -194,17 +195,21 @@ input::placeholder { opacity: 1; color: #999d86; font-size: 12px; letter-spacing
 .sequence-row.is-recognized { border-color: #a18b4f; border-left-color: #e5c574; box-shadow: inset 0 0 18px #d9b23c0d, 0 0 12px #d9b23c0a; }
 .is-recognized .credential-state { color: #e2c780; }
 .entry-help { color: var(--muted); font-size: 9px; margin: 13px 0 20px; }
-.attempt-status { display: grid; gap: 5px; min-height: 73px; align-content: center; padding: 12px 15px; margin: 0 0 20px; border-left: 2px solid var(--bronze); background: #03080355; font-size: 10px; line-height: 1.8; }
+.attempt-status { display: grid; gap: 5px; min-height: 73px; align-content: center; padding: 12px 15px; margin: 0 0 20px; border-left: 2px solid var(--bronze); background: #03080355; font-size: 10px; line-height: 1.8; text-align: center; }
 .attempt-status strong { font-size: 10px; font-weight: 500; color: var(--gold); letter-spacing: .7px; }
 .attempt-status > span { font-size: 9px; color: var(--muted); }
-.attempt-status.is-error { border-color: var(--ember); background: #bf552012; }
-.attempt-status.is-error strong, .attempt-status.is-error > span { color: #efb38a; }
+.attempt-status.is-error { border: 1px solid #d73d43; border-left: 4px solid var(--danger); background: #3b1015; }
+.attempt-status.is-error strong { color: #ff6868; font-weight: 600; }
+.attempt-status.is-error > span { color: #ff9b9b; }
 button, a, input { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 button:disabled { opacity: .5; cursor: wait; }
 .primary-button { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 20px; border: 1px solid #b7a06a; border-top-color: #ddc895; border-bottom-color: #6f5a32; background: linear-gradient(#71623e, #4b432d); box-shadow: inset 0 0 0 3px #0c0f0940, 0 3px 0 #080b07; color: #fff0ce; text-decoration: none; font: 600 11px/1.7 var(--mono); letter-spacing: .8px; transition: filter .2s; }
 .primary-button:hover { filter: brightness(1.2); }
 .primary-button span { font-size: 21px; line-height: 1; }
+#authorize-button { display: grid; grid-template-columns: 18px minmax(0, 1fr) 18px; gap: 10px; text-align: center; }
+#authorize-button .button-label { grid-column: 2; font: inherit; }
+#authorize-button .button-arrow { grid-column: 3; justify-self: end; }
 .text-button { display: block; min-height: 44px; padding: 13px 10px; margin: 7px auto 0; border: 0; background: transparent; color: var(--muted); font: 400 9px/1.7 var(--mono); letter-spacing: 1.3px; }
 .text-button:hover { color: var(--gold); }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
