@@ -1,5 +1,5 @@
-import { puzzle } from './puzzle-config.js?v=sentinel-06';
-import { getOrderedKeys, getRecognizedAuthorities, isValidAttempt, normalizeSequence, validatePuzzle } from './puzzle.js?v=sentinel-06';
+import { puzzle } from './puzzle-config.js?v=sentinel-07';
+import { getOrderedKeys, getRecognizedAuthorities, isValidAttempt, normalizeSequence, validatePuzzle } from './puzzle.js?v=sentinel-07';
 
 const form = document.querySelector('#authorization-form');
 const inputs = [...form.querySelectorAll('input')];

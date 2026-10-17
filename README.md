@@ -50,7 +50,7 @@ npm run generate:keys
 
 Commit the generated pages with the shared source files. This is an authoring helper, not a required hosting build: GitHub Pages serves the committed files directly. Each dedicated route binds its authority using `data-key`; a query parameter cannot switch it to another key. `key.html` continues to support the original query-based URLs.
 
-Key-page styles are scoped to their layout and keep the main terminal unchanged. Identifiers stay on one line, the copy target is comfortable to tap, and protocol text remains readable on small screens. Copying is available when the browser exposes its clipboard API; if permission is denied, the identifier remains selectable and the page gives a manual-copy instruction. Rune activation is brief and respects reduced-motion preferences.
+Key-page styles are scoped to their layout and keep the main terminal unchanged. Identifiers stay on one line, and protocol text remains readable on small screens. The phone pages are read-only records without copy buttons or return links: players type their identifiers into the terminal running on a separate PC. Rune activation is brief and respects reduced-motion preferences.
 
 ## Recognition and authentication
 
@@ -78,6 +78,6 @@ The three typefaces and their licenses are in `assets/fonts/`; system fallbacks 
 
 The repository is https://github.com/Crowmorian/argentTerminal and Pages deploys from `main`, `/ (root)`. Push changes to `main` to trigger publication. All application links are relative, so repository Pages URLs and custom domains work. `.nojekyll` preserves plain static hosting.
 
-The HTML stylesheet/script links and JavaScript imports share a `?v=sentinel-06` release tag. Bump it together when publishing changed assets and regenerate the key pages so browsers load matching HTML, CSS, and scripts instead of mixing cached revisions.
+The HTML stylesheet/script links and JavaScript imports share a `?v=sentinel-07` release tag. Bump it together when publishing changed assets and regenerate the key pages so browsers load matching HTML, CSS, and scripts instead of mixing cached revisions.
 
-Before an event, check desktop and 390px phone layouts, copy a credential from each key page, submit a wrong order, submit the correct order, and reset the terminal.
+Before an event, check desktop and 390px phone layouts, read each key page on a phone and type its identifier into the separate PC terminal, submit a wrong order, submit the correct order, and reset the terminal.

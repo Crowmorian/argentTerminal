@@ -1,4 +1,4 @@
-import { puzzle } from './puzzle-config.js?v=sentinel-06';
+import { puzzle } from './puzzle-config.js?v=sentinel-07';
 
 // Dedicated routes bind their authority; the original NFC query URLs still work.
 const id = document.body.dataset.key || new URLSearchParams(location.search).get('key');
@@ -20,16 +20,4 @@ if (!key) {
   document.querySelector('#key-data').hidden = false;
   document.querySelector('#key-activation').textContent = 'KEY AUTHORITY RECOGNIZED';
   document.body.classList.add('record-recognized');
-  const copyButton = document.querySelector('#copy-button');
-  if (navigator.clipboard?.writeText) {
-    copyButton.hidden = false;
-    copyButton.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(key.sequence);
-        document.querySelector('#copy-status').textContent = 'IDENTIFIER COPIED';
-      } catch {
-        document.querySelector('#copy-status').textContent = 'Select and copy the identifier above.';
-      }
-    });
-  }
 }
