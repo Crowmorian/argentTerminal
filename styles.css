@@ -248,7 +248,7 @@ input:focus-visible { outline: none; }
 .credential-plaque { border: 1px solid var(--bronze); background: #080e08; padding: 16px 10px 18px; text-align: center; margin: 0 0 23px; }
 .credential-plaque > p:first-child { margin: 0 0 11px; color: var(--gold); font-size: 9px; letter-spacing: 1.4px; }
 .key-sequence { color: #f0dba1; font: 500 clamp(16px, 5.1vw, 25px)/1.5 var(--mono); letter-spacing: 0; white-space: nowrap; margin: 0; user-select: all; }
-.protocol-record { padding: 0 0 0 16px; border-left: 2px solid var(--bronze); }
+.protocol-record { padding: 0 8px; text-align: center; }
 .key-record .protocol-record h2 { font: 500 10px/1.7 var(--mono); color: var(--gold); letter-spacing: 1.2px; margin: 0; }
 .protocol-record > p { font: 17px/1.7 Georgia, serif; color: var(--ink); margin: 11px 0 0; }
 .record-status { display: grid; gap: 5px; padding: 17px 0 0; margin: 23px 0 0; border-top: 1px solid var(--line); list-style: none; color: var(--muted); font-size: 9px; line-height: 1.8; letter-spacing: .3px; }
@@ -325,7 +325,6 @@ input:focus-visible { outline: none; }
   .key-record .console-topline, .key-record .console-bottomline { padding: 10px 11px; font-size: 7px; letter-spacing: .3px; gap: 8px; }
   .key-console h1 { font-size: 40px; }
   .credential-plaque { padding-top: 15px; margin-bottom: 20px; }
-  .protocol-record { padding-left: 13px; }
   .protocol-record > p { font-size: 16px; line-height: 1.65; }
   .record-status { font-size: 8px; margin-top: 20px; }
 }

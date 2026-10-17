@@ -78,6 +78,6 @@ The three typefaces and their licenses are in `assets/fonts/`; system fallbacks 
 
 The repository is https://github.com/Crowmorian/argentTerminal and Pages deploys from `main`, `/ (root)`. Push changes to `main` to trigger publication. All application links are relative, so repository Pages URLs and custom domains work. `.nojekyll` preserves plain static hosting.
 
-The HTML stylesheet/script links and JavaScript imports share a `?v=sentinel-07` release tag. Bump it together when publishing changed assets and regenerate the key pages so browsers load matching HTML, CSS, and scripts instead of mixing cached revisions.
+The HTML stylesheet/script links and JavaScript imports share a `?v=sentinel-08` release tag. Bump it together when publishing changed assets and regenerate the key pages so browsers load matching HTML, CSS, and scripts instead of mixing cached revisions.
 
 Before an event, check desktop and 390px phone layouts, read each key page on a phone and type its identifier into the separate PC terminal, submit a wrong order, submit the correct order, and reset the terminal.

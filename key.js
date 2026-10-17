@@ -1,4 +1,4 @@
-import { puzzle } from './puzzle-config.js?v=sentinel-07';
+import { puzzle } from './puzzle-config.js?v=sentinel-08';
 
 // Dedicated routes bind their authority; the original NFC query URLs still work.
 const id = document.body.dataset.key || new URLSearchParams(location.search).get('key');
