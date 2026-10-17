@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node scripts/serve.mjs",
+    "generate:keys": "node scripts/generate-key-pages.mjs",
     "test": "node --test"
   }
 }

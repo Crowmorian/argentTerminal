@@ -1,26 +1,34 @@
-import { puzzle } from './puzzle-config.js?v=sentinel-05';
+import { puzzle } from './puzzle-config.js?v=sentinel-06';
 
-const id = new URLSearchParams(location.search).get('key');
+// Dedicated routes bind their authority; the original NFC query URLs still work.
+const id = document.body.dataset.key || new URLSearchParams(location.search).get('key');
 const key = puzzle.keys.find(item => item.id === id);
 if (!key) {
   document.querySelector('#key-title').textContent = 'Authority unrecognized';
   document.querySelector('#key-error').hidden = false;
+  document.querySelector('#key-activation').textContent = 'AUTHORITY NOT RECOGNIZED';
 } else {
-  document.title = `${key.name} authority | ${puzzle.title}`;
+  document.title = `${key.name} | Sentinel Authority Record`;
   document.querySelector('#key-title').textContent = key.name;
-  document.querySelector('#key-designation').textContent = key.designation;
   document.querySelector('#key-sequence').textContent = key.sequence;
-  document.querySelector('#key-clue').textContent = key.clue;
+  document.querySelector('#key-protocol').textContent = key.protocol;
+  document.querySelector('#key-status').replaceChildren(...key.status.map(text => {
+    const line = document.createElement('li');
+    line.textContent = text;
+    return line;
+  }));
   document.querySelector('#key-data').hidden = false;
+  document.querySelector('#key-activation').textContent = 'KEY AUTHORITY RECOGNIZED';
+  document.body.classList.add('record-recognized');
   const copyButton = document.querySelector('#copy-button');
   if (navigator.clipboard?.writeText) {
     copyButton.hidden = false;
     copyButton.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(key.sequence);
-        document.querySelector('#copy-status').textContent = 'CREDENTIAL COPIED';
+        document.querySelector('#copy-status').textContent = 'IDENTIFIER COPIED';
       } catch {
-        document.querySelector('#copy-status').textContent = 'Select and copy the credential above.';
+        document.querySelector('#copy-status').textContent = 'Select and copy the identifier above.';
       }
     });
   }

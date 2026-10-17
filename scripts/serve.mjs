@@ -9,12 +9,20 @@ const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascrip
 const allowed = new Set([
   'index.html', 'key.html', 'styles.css', 'terminal.js', 'key.js', 'puzzle.js', 'puzzle-config.js',
   'assets/slayer-rune.png', 'assets/fonts/barlow-condensed-600.woff2',
-  'assets/fonts/cinzel-600.woff2', 'assets/fonts/ibm-plex-mono-400.woff2'
+  'assets/fonts/cinzel-600.woff2', 'assets/fonts/ibm-plex-mono-400.woff2',
+  'security/index.html', 'biolab/index.html', 'engineering/index.html',
+  'armory/index.html', 'command/index.html'
 ]);
 const server = http.createServer(async (req, res) => {
   try {
-    const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-    const file = pathname === '/' ? 'index.html' : pathname.slice(1);
+    const requestUrl = new URL(req.url, 'http://localhost');
+    const pathname = decodeURIComponent(requestUrl.pathname);
+    const file = pathname.endsWith('/') ? `${pathname.slice(1)}index.html` : pathname.slice(1);
+    if (allowed.has(`${file}/index.html`)) {
+      res.writeHead(302, { Location: `${pathname}/${requestUrl.search}` });
+      res.end();
+      return;
+    }
     if (!allowed.has(file)) {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('Not found');

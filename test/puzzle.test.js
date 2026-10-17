@@ -6,10 +6,15 @@ import { getOrderedKeys, getRecognizedAuthorities, isValidAttempt, validatePuzzl
 const ordered = getOrderedKeys(puzzle);
 const correct = ordered.map(key => key.sequence);
 
+function permutations(values) {
+  if (!values.length) return [[]];
+  return values.flatMap((value, index) => permutations(values.filter((_, i) => i !== index)).map(rest => [value, ...rest]));
+}
+
 test('the configured puzzle has five distinct keys and a five-digit lock code', () => {
   assert.doesNotThrow(() => validatePuzzle(puzzle));
   assert.equal(puzzle.lockCode, '48137');
-  assert.deepEqual(ordered.map(key => key.name), ['Security', 'Engineering', 'Armory', 'Biolab', 'Command']);
+  assert.deepEqual(ordered.map(key => key.name), ['Security', 'Biolab', 'Engineering', 'Armory', 'Command']);
 });
 
 test('only the exact ordered set is accepted, ignoring case and outer whitespace', () => {
@@ -36,16 +41,23 @@ test('missing, incorrect, duplicate, and extra credentials are rejected', () => 
 });
 
 test('all 120 permutations recognize the same authorities but only one unlocks', () => {
-  function permutations(values) {
-    if (!values.length) return [[]];
-    return values.flatMap((value, index) => permutations(values.filter((_, i) => i !== index)).map(rest => [value, ...rest]));
-  }
   const attempts = permutations(correct);
   assert.equal(attempts.length, 120);
   assert.equal(attempts.filter(attempt => isValidAttempt(attempt, ordered)).length, 1);
   for (const attempt of attempts) {
     assert.deepEqual(getRecognizedAuthorities(attempt, puzzle.keys).map(key => key.id), puzzle.keys.map(key => key.id));
   }
+});
+
+test('the archived protocol constraints determine one order matching the terminal', () => {
+  const solutions = permutations(puzzle.keys.map(key => key.id)).filter(order => {
+    const p = Object.fromEntries(order.map((id, index) => [id, index]));
+    return p.sec < p.bio && p.bio < p.eng && p.eng !== 4 &&
+      Math.abs(p.arm - p.sec) !== 1 &&
+      Math.abs(p.arm - p.cmd) < Math.abs(p.arm - p.sec) &&
+      p.arm < p.cmd; // Approved addition to the Command record.
+  });
+  assert.deepEqual(solutions, [puzzle.order]);
 });
 
 test('recognition counts distinct authorities and ignores slot, case, and outer whitespace', () => {
