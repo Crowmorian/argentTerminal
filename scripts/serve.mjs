@@ -8,6 +8,7 @@ const port = Number(process.env.PORT || 4173);
 const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.mp3': 'audio/mpeg', '.woff2': 'font/woff2' };
 const allowed = new Set([
   'index.html', 'key.html', 'styles.css', 'terminal.js', 'key.js', 'puzzle.js', 'puzzle-config.js',
+  'hub/index.html', 'hub/hub.css',
   'assets/slayer-rune.png', 'assets/fonts/barlow-condensed-600.woff2',
   'assets/fonts/cinzel-600.woff2', 'assets/fonts/ibm-plex-mono-400.woff2',
   'security/index.html', 'biolab/index.html', 'engineering/index.html',

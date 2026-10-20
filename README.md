@@ -2,6 +2,10 @@
 
 An unofficial DOOM: The Dark Ages inspired Sentinel command terminal for a physical party puzzle. Five intact Sentinel access keys carry credentials and ordering clues. The terminal recognizes credentials independently of their position, then verifies the complete command order before revealing the five-digit mechanical lock code.
 
+## Game hub
+
+Open https://crowmorian.github.io/argentTerminal/hub/ for a simple launcher linking to Sentinel Terminal, Halloween Quiz, Image Memory, and Name That Sound. It uses four large links, the shared visual style, and no JavaScript. The original terminal remains at the root URL. Hub-specific styles are in `hub/hub.css` with the `?v=hub-01` asset tag.
+
 ## Local preview
 
 Requires Node.js; no dependencies or installation step.
