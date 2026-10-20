@@ -1,5 +1,5 @@
-import { imageGame } from './game-data.js?v=images-01';
-import { createImageGameSession } from './game-session.js?v=images-01';
+import { imageGame } from './game-data.js?v=images-02';
+import { createImageGameSession } from './game-session.js?v=images-02';
 
 const screens = {
   hub: document.querySelector('#hub-screen'), loading: document.querySelector('#loading-screen'),
@@ -7,6 +7,7 @@ const screens = {
   answers: document.querySelector('#answers-screen')
 };
 const image = document.querySelector('#round-image');
+const answerImage = document.querySelector('#answer-image');
 const countdown = document.querySelector('#countdown');
 let session;
 let timer = null;
@@ -52,6 +53,10 @@ function render(focus = true) {
     image.removeAttribute('src');
     image.alt = '';
   }
+  if (active !== 'answers') {
+    answerImage.removeAttribute('src');
+    answerImage.alt = '';
+  }
   if (active === 'hub') {
     document.querySelector('#round-buttons').replaceChildren(...view.rounds.map(round => {
       const button = document.createElement('button');
@@ -82,6 +87,8 @@ function render(focus = true) {
     if (focus) document.querySelector('#questions-title').focus();
   } else if (active === 'answers') {
     document.querySelector('#answers-round').textContent = view.title;
+    answerImage.src = view.src;
+    answerImage.alt = view.alt;
     document.querySelector('#answer-list').replaceChildren(...view.questions.map(item => {
       const card = document.createElement('li');
       card.append(makeText('h3', '', item.question), makeText('p', '', item.answer));

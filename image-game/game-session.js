@@ -35,7 +35,7 @@ export function createImageGameSession(config, now = () => performance.now()) {
       rounds: rounds.map(({ id, title }) => ({ id, title, completed: completed.has(id) }))
     };
     const view = { phase, id: current.id, title: current.title };
-    if (phase === 'loading' || phase === 'viewing') {
+    if (phase === 'loading' || phase === 'viewing' || phase === 'answers') {
       view.src = current.src;
       view.alt = current.alt || current.title;
     }

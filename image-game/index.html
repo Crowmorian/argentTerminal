@@ -7,8 +7,8 @@
   <meta name="description" content="Three image memory rounds with a 30-second viewing countdown, questions, and answer reveals.">
   <title>Image Memory</title>
   <link rel="stylesheet" href="../styles.css?v=sentinel-08">
-  <link rel="stylesheet" href="./game.css?v=images-01">
-  <script type="module" src="./game.js?v=images-01"></script>
+  <link rel="stylesheet" href="./game.css?v=images-02">
+  <script type="module" src="./game.js?v=images-02"></script>
 </head>
 <body class="memory-page">
   <div class="fortress-wall" aria-hidden="true"></div>
@@ -50,6 +50,7 @@
       <div class="console-topline"><span id="answers-round"></span><span>ANSWERS</span></div>
       <div class="console-body">
         <h2 id="answers-title" tabindex="-1">Answers</h2>
+        <figure class="memory-answer-image"><img id="answer-image" alt="" decoding="async"></figure>
         <ol id="answer-list" class="memory-answers"></ol>
         <button id="hub-button" class="primary-button memory-action" type="button">BACK TO IMAGES <span aria-hidden="true">&#8594;</span></button>
       </div>

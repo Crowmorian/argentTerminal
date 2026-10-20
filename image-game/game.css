@@ -24,6 +24,8 @@
 .memory-questions { padding-left: 26px; margin: 0 0 32px; display: grid; gap: 23px; }
 .memory-questions li { padding-left: 10px; font: 500 25px/1.5 var(--condensed); }
 .memory-questions li::marker { color: var(--gold); font: 500 13px var(--mono); }
+.memory-answer-image { margin: 0 0 28px; border: 1px solid var(--line); background: #050706; }
+.memory-answer-image img { display: block; width: 100%; height: auto; }
 .memory-answers { counter-reset: answers; display: grid; gap: 17px; list-style: none; padding: 0; margin: 0 0 30px; }
 .memory-answers li { counter-increment: answers; padding: 22px 23px; border: 1px solid var(--line); border-left: 3px solid var(--bronze); background: #09100abf; }
 .memory-answers h3 { font: 600 23px/1.4 var(--condensed); margin: 0 0 12px; }

@@ -73,7 +73,8 @@ test('questions remain untimed and answers appear only after the reveal action',
   assert(session.revealAnswers());
   assert.equal(session.getView().phase, 'answers');
   assert.equal(session.getView().questions[0].answer, 'Answer 1');
-  assert.equal('src' in session.getView(), false);
+  assert.equal(session.getView().src, config.rounds[2].src);
+  assert.equal(session.getView().alt, config.rounds[2].title);
 });
 
 test('returning to the hub records completion and another round gets a fresh countdown', () => {
