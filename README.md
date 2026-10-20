@@ -88,7 +88,7 @@ The standalone quiz is at https://crowmorian.github.io/argentTerminal/quiz/. It 
 - The final score appears beneath the review as `x out of y`. Play Again returns to a clean start screen.
 - A run exists only in that browser tab's memory; reloading starts a new run. There are no accounts or submissions to a server.
 
-Quiz content and logic use the independent `?v=quiz-01` asset tag. Bump it in the quiz HTML and module imports when changing quiz files to avoid stale cached versions. The static page needs no build step. Run `npm test` for data, locking, scoring, restart, and UI-handler checks.
+Quiz content and logic use the independent `?v=quiz-02` asset tag. Bump it in the quiz HTML and module imports when changing quiz files to avoid stale cached versions. The static page needs no build step. Run `npm test` for data, locking, scoring, restart, and UI-handler checks.
 
 ## GitHub Pages
 

@@ -1,5 +1,5 @@
-import { quiz } from './quiz-data.js?v=quiz-01';
-import { createQuizSession } from './quiz-session.js?v=quiz-01';
+import { quiz } from './quiz-data.js?v=quiz-02';
+import { createQuizSession } from './quiz-session.js?v=quiz-02';
 
 const startScreen = document.querySelector('#start-screen');
 const questionScreen = document.querySelector('#question-screen');
@@ -58,8 +58,8 @@ function render(focus = true) {
   document.querySelector('#quiz-brand').textContent = view.title;
   document.querySelector('#start-title').textContent = view.title;
   document.querySelector('#quiz-meta').textContent = `${view.total} QUESTIONS`;
-  document.querySelector('#question-total').textContent = view.total;
-  document.querySelector('#quiz-footer').textContent = view.screen === 'results' ? 'QUIZ COMPLETE' : 'ANSWERS REVEALED AT THE END';
+  document.querySelector('#quiz-meta').hidden = view.screen === 'start';
+  document.querySelector('#quiz-footer').textContent = view.screen === 'start' ? 'READY TO START' : view.screen === 'results' ? 'QUIZ COMPLETE' : 'ANSWERS REVEALED AT THE END';
   const roundStatus = document.querySelector('#round-status');
 
   if (view.screen === 'question') {

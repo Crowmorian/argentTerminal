@@ -7,23 +7,19 @@
   <meta name="description" content="A 15-question Halloween quiz. Choose one answer per question and see your results at the end.">
   <title>Halloween Quiz</title>
   <link rel="stylesheet" href="../styles.css?v=sentinel-08">
-  <link rel="stylesheet" href="./quiz.css?v=quiz-01">
-  <script type="module" src="./quiz.js?v=quiz-01"></script>
+  <link rel="stylesheet" href="./quiz.css?v=quiz-02">
+  <script type="module" src="./quiz.js?v=quiz-02"></script>
 </head>
 <body class="quiz-page">
   <div class="fortress-wall" aria-hidden="true"></div>
   <div class="site-shell quiz-shell">
-    <header class="quiz-masthead"><p id="quiz-brand">Halloween Quiz</p><span id="quiz-meta">15 QUESTIONS</span></header>
+    <header class="quiz-masthead"><p id="quiz-brand">Halloween Quiz</p><span id="quiz-meta" hidden>15 QUESTIONS</span></header>
     <main class="quiz-main">
       <section class="console quiz-console" aria-label="Quiz">
         <div class="console-topline"><span>QUIZ</span><span id="round-status">READY TO START</span></div>
         <div class="console-body">
           <section id="start-screen" class="quiz-start" aria-labelledby="start-title">
-            <p class="eyebrow">FOUR OPTIONS. ONE ANSWER.</p>
             <h1 id="start-title" tabindex="-1">Halloween Quiz</h1>
-            <p class="quiz-intro">Choose one answer for each question. Your answers will be revealed together at the end.</p>
-            <div class="quiz-facts"><div><strong id="question-total">15</strong><span>QUESTIONS</span></div><div><strong>4</strong><span>OPTIONS EACH</span></div></div>
-            <p class="quiz-start-note">Press Next to lock in each answer. You won’t be able to go back.</p>
             <button id="start-button" class="primary-button quiz-action" type="button" disabled>START QUIZ <span aria-hidden="true">&#8594;</span></button>
             <p id="quiz-error" class="error-note" role="alert" hidden>Quiz unavailable. Please check the question data.</p>
           </section>
@@ -51,7 +47,7 @@
           </section>
           <noscript><p class="error-note">Enable JavaScript to take the quiz.</p></noscript>
         </div>
-        <div class="console-bottomline"><span id="quiz-footer">ANSWERS REVEALED AT THE END</span><span>HALLOWEEN QUIZ</span></div>
+        <div class="console-bottomline"><span id="quiz-footer">READY TO START</span><span>HALLOWEEN QUIZ</span></div>
       </section>
     </main>
   </div>
