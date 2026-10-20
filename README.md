@@ -106,6 +106,24 @@ The standalone game is at https://crowmorian.github.io/argentTerminal/image-game
 
 The originals are in `image-game/images/image1.jpg`, `image2.jpg`, and `image3.jpg`. The game uses the existing local fonts and framing with plain game text, and has independent styles in `image-game/game.css`. Its HTML and module imports use `?v=images-02`; bump that tag when changing its assets. It needs no build step or backend. Progress is held only in the current tab.
 
+## Sound game
+
+The standalone game is at https://crowmorian.github.io/argentTerminal/sound-game/.
+
+- Start Game opens sound 1. Nothing plays automatically.
+- Play Sound starts the clip; Replay Sound restarts it from the beginning. Stop ends the current playback. Players can replay and edit their answer as often as they want.
+- Next requires a nonempty answer, locks it, stops any playback, and advances. There is no back button and no answer feedback during the game.
+- After sound 10, Show Answers displays all ten entered answers beside the supplied correct answers. Free-text answers are compared manually, without automatic spelling judgments or scoring.
+- Play Again returns to the start with all answers cleared. Reloading also starts a new run.
+
+### Balancing clip volumes before the event
+
+Edit `sound-game/sound-data.js`. Each clip has a `volume` number between `0` (silent) and `1` (original level). For example, `volume: 0.5` reduces a louder clip. All clips initially use `1`; no automatic loudness matching has been applied. Listen on the event speakers and lower the louder clips to match the quietest one. This is a playback multiplier, not a decibel setting, and it cannot amplify above the original level. Keep the PC/speaker volume steady while comparing.
+
+The volume is applied to each playback, including replays. There are no in-game volume controls. Clip paths and the ten expected answers are in the same config file; Sound 5 uses the confirmed answer “Ghostbusters – Proton Pack.” Original MP3s are in `sound-game/sounds/`.
+
+The game uses the shared local fonts and plain game labels, with independent CSS and no build step. Bump `?v=sound-01` in its HTML and module imports when publishing changes to the game or its config, so browsers receive the current settings. Like the other games, its state stays only in the current tab.
+
 ## GitHub Pages
 
 The repository is https://github.com/Crowmorian/argentTerminal and Pages deploys from `main`, `/ (root)`. Push changes to `main` to trigger publication. All application links are relative, so repository Pages URLs and custom domains work. `.nojekyll` preserves plain static hosting.

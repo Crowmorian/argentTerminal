@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const port = Number(process.env.PORT || 4173);
-const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.woff2': 'font/woff2' };
+const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.mp3': 'audio/mpeg', '.woff2': 'font/woff2' };
 const allowed = new Set([
   'index.html', 'key.html', 'styles.css', 'terminal.js', 'key.js', 'puzzle.js', 'puzzle-config.js',
   'assets/slayer-rune.png', 'assets/fonts/barlow-condensed-600.woff2',
@@ -15,7 +15,14 @@ const allowed = new Set([
   'quiz/index.html', 'quiz/quiz.css', 'quiz/quiz.js', 'quiz/quiz-data.js', 'quiz/quiz-session.js',
   'image-game/index.html', 'image-game/game.css', 'image-game/game.js',
   'image-game/game-data.js', 'image-game/game-session.js',
-  'image-game/images/image1.jpg', 'image-game/images/image2.jpg', 'image-game/images/image3.jpg'
+  'image-game/images/image1.jpg', 'image-game/images/image2.jpg', 'image-game/images/image3.jpg',
+  'sound-game/index.html', 'sound-game/sound.css', 'sound-game/sound.js',
+  'sound-game/sound-data.js', 'sound-game/sound-session.js',
+  'sound-game/sounds/Sound1-Nostromo.mp3', 'sound-game/sounds/Sound2-DeadPeople.mp3',
+  'sound-game/sounds/Sound3-MotionTracker.mp3', 'sound-game/sounds/Sound4-Shotgun.mp3',
+  'sound-game/sounds/Sound5-ProtonPack.mp3', 'sound-game/sounds/Sound6-Penywise.mp3',
+  'sound-game/sounds/Sound7-Jaws.mp3', 'sound-game/sounds/Sound8-ResidentEvil.mp3',
+  'sound-game/sounds/Sound9-Nazghul.mp3', 'sound-game/sounds/Sound10-Predator.mp3'
 ]);
 const server = http.createServer(async (req, res) => {
   try {
