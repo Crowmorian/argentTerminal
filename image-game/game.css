@@ -1,0 +1,59 @@
+.memory-shell { position: relative; max-width: 1000px; min-height: 100svh; padding: 48px 34px; margin: auto; }
+.memory-panel { width: 100%; }
+.memory-panel .console-body { padding: 34px 38px; }
+.memory-panel h1 { font: 600 clamp(30px, 4vw, 46px)/1.3 var(--display); text-align: center; margin: 5px 0 33px; }
+.memory-panel h2 { font: 600 38px/1.25 var(--condensed); text-transform: none; margin: 4px 0 28px; }
+.memory-rounds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+.memory-round { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 17px; min-height: 165px; padding: 20px 14px; color: var(--ink); background: linear-gradient(135deg, #22291e, #0b120c); border: 1px solid var(--bronze); box-shadow: inset 0 0 0 4px #0c110b; }
+.memory-round:hover { border-color: var(--gold); background: #343823; }
+.round-label { font: 600 32px/1.2 var(--condensed); }
+.round-state { font: 400 8px/1.7 var(--mono); letter-spacing: 1px; color: var(--gold); }
+.memory-loading { text-align: center; }
+.memory-loading > p { font-size: 12px; color: var(--muted); margin: 0 0 15px; }
+#loading-error-actions { max-width: 300px; margin: 25px auto 0; }
+.is-viewing-image { overflow: hidden; }
+.memory-stage { position: fixed; inset: 0; z-index: 20; display: grid; grid-template-rows: auto minmax(0, 1fr); background: #050706; }
+.viewing-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 66px; padding: 10px 24px; border-bottom: 1px solid var(--line); background: #141910; }
+.viewing-toolbar > p { margin: 0; font: 600 23px/1.3 var(--condensed); }
+.countdown { display: flex; align-items: center; gap: 15px; }
+.countdown > span { color: var(--muted); font-size: 9px; letter-spacing: 1px; }
+#countdown { color: var(--gold); font: 500 30px/1 var(--mono); font-variant-numeric: tabular-nums; }
+#countdown.is-low { color: #ff9292; }
+.memory-image-frame { margin: 0; width: 100%; height: 100%; min-height: 0; overflow: hidden; }
+.memory-image-frame img { display: block; width: 100%; height: 100%; object-fit: contain; user-select: none; }
+.memory-questions { padding-left: 26px; margin: 0 0 32px; display: grid; gap: 23px; }
+.memory-questions li { padding-left: 10px; font: 500 25px/1.5 var(--condensed); }
+.memory-questions li::marker { color: var(--gold); font: 500 13px var(--mono); }
+.memory-answers { counter-reset: answers; display: grid; gap: 17px; list-style: none; padding: 0; margin: 0 0 30px; }
+.memory-answers li { counter-increment: answers; padding: 22px 23px; border: 1px solid var(--line); border-left: 3px solid var(--bronze); background: #09100abf; }
+.memory-answers h3 { font: 600 23px/1.4 var(--condensed); margin: 0 0 12px; }
+.memory-answers h3::before { content: counter(answers) '. '; color: var(--gold); }
+.memory-answers p { color: var(--gold); font: 500 22px/1.5 var(--condensed); margin: 0; }
+.memory-action { min-height: 56px; font-size: 12px; }
+.memory-page [tabindex='-1']:focus { outline: none; }
+@media (max-width: 760px) {
+  .memory-shell { padding: 32px 24px; }
+  .memory-panel .console-body { padding: 28px 25px; }
+  .memory-rounds { grid-template-columns: minmax(0, 1fr); gap: 13px; }
+  .memory-round { flex-direction: row; justify-content: space-between; min-height: 88px; padding: 20px 22px; }
+  .round-label { font-size: 29px; }
+  .memory-questions li { font-size: 23px; }
+}
+@media (max-width: 430px) {
+  .memory-shell { padding: 25px 18px; }
+  .memory-panel .console-body { padding: 25px 18px; }
+  .memory-panel h1 { font-size: 29px; }
+  .memory-panel h2 { font-size: 33px; }
+  .memory-panel .console-topline { font-size: 8px; padding: 12px 13px; }
+  .viewing-toolbar { min-height: 58px; padding: 10px 14px; gap: 12px; }
+  .viewing-toolbar > p { font-size: 20px; }
+  .countdown { gap: 9px; }
+  .countdown > span { font-size: 8px; }
+  #countdown { font-size: 25px; }
+  .memory-questions { padding-left: 21px; gap: 21px; }
+  .memory-questions li { font-size: 22px; padding-left: 6px; }
+  .memory-answers li { padding: 19px 17px; }
+  .memory-answers h3 { font-size: 22px; }
+  .memory-answers p { font-size: 21px; }
+  .memory-action { font-size: 11px; }
+}

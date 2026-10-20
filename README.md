@@ -88,7 +88,23 @@ The standalone quiz is at https://crowmorian.github.io/argentTerminal/quiz/. It 
 - The final score appears beneath the review as `x out of y`. Play Again returns to a clean start screen.
 - A run exists only in that browser tab's memory; reloading starts a new run. There are no accounts or submissions to a server.
 
-Quiz content and logic use the independent `?v=quiz-02` asset tag. Bump it in the quiz HTML and module imports when changing quiz files to avoid stale cached versions. The static page needs no build step. Run `npm test` for data, locking, scoring, restart, and UI-handler checks.
+Quiz content and logic use the independent `?v=quiz-03` asset tag. Bump it in the quiz HTML and module imports when changing quiz files to avoid stale cached versions. The static page needs no build step. Run `npm test` for data, locking, scoring, restart, and UI-handler checks.
+
+## Image memory game
+
+The standalone game is at https://crowmorian.github.io/argentTerminal/image-game/.
+
+- The hub offers three numbered image buttons, without previews.
+- Choosing an image loads and decodes the original high-resolution file before starting the timer.
+- The image fills the viewing area with its original aspect ratio and no cropping. A visible countdown starts at `00:30` in the toolbar.
+- At the deadline, the image is hidden and its source is removed from the display element. Five questions appear, with no time limit.
+- Next reveals the five suggested answers. Scoring is discussed manually; the page does not collect or grade responses.
+- Back to Images returns to the hub. Viewed answers are marked there, and any round can be replayed with a fresh countdown.
+- Timer checks use an elapsed-time deadline, so delayed callbacks or switching tabs cannot add viewing time. Failed image loads can be retried without consuming time.
+
+`image-game/game-data.js` contains `viewSeconds` (currently 30) and all round titles, image paths, questions, and answers. The fifteen questions and their accepted answers were supplied for the three images. Each round needs exactly five question-and-answer pairs.
+
+The originals are in `image-game/images/image1.jpg`, `image2.jpg`, and `image3.jpg`. The game uses the existing local fonts and framing with plain game text, and has independent styles in `image-game/game.css`. Its HTML and module imports use `?v=images-01`; bump that tag when changing its assets. It needs no build step or backend. Progress is held only in the current tab.
 
 ## GitHub Pages
 

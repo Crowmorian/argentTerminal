@@ -10,7 +10,7 @@ export const quiz = {
     },
     {
       id: 'q2',
-      text: 'Abigail Williams and Betty Parris were young girls when they accused their neighbours of witchcraft, leading to which town’s infamous witch trials?',
+      text: 'Abigail Williams and Betty Parris were young girls when they accused their neighbours of witchcraft, leading to which infamous witch trial?',
       options: ['Salem', 'Plymouth', 'Boston', 'Jamestown'],
       correctIndex: 0
     },

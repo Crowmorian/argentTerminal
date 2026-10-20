@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111310">
+  <meta name="description" content="Three image memory rounds with a 30-second viewing countdown, questions, and answer reveals.">
+  <title>Image Memory</title>
+  <link rel="stylesheet" href="../styles.css?v=sentinel-08">
+  <link rel="stylesheet" href="./game.css?v=images-01">
+  <script type="module" src="./game.js?v=images-01"></script>
+</head>
+<body class="memory-page">
+  <div class="fortress-wall" aria-hidden="true"></div>
+  <main class="memory-shell">
+    <section id="hub-screen" class="console memory-panel" aria-labelledby="hub-title">
+      <div class="console-topline"><span>IMAGE MEMORY</span><span>3 IMAGES</span></div>
+      <div class="console-body">
+        <h1 id="hub-title" tabindex="-1">Image Memory</h1>
+        <div id="round-buttons" class="memory-rounds" aria-label="Choose an image"></div>
+        <p id="game-error" class="error-note" role="alert" hidden>The game is unavailable. Please check the image round data.</p>
+        <noscript><p class="error-note">Enable JavaScript to play the image game.</p></noscript>
+      </div>
+    </section>
+
+    <section id="loading-screen" class="console memory-panel" hidden aria-labelledby="loading-title">
+      <div class="console-topline"><span>IMAGE MEMORY</span><span id="loading-round"></span></div>
+      <div class="console-body memory-loading">
+        <h2 id="loading-title" tabindex="-1">Loading image…</h2>
+        <p id="loading-status" role="status">The countdown starts when the image is ready.</p>
+        <div id="loading-error-actions" hidden><button id="retry-button" class="primary-button" type="button">TRY AGAIN</button><button id="cancel-button" class="text-button" type="button">BACK TO IMAGES</button></div>
+      </div>
+    </section>
+
+    <section id="image-screen" class="memory-stage" hidden aria-label="Timed image viewing">
+      <div class="viewing-toolbar"><p id="image-title"></p><div class="countdown"><span>TIME LEFT</span><output id="countdown" role="timer" aria-live="off" aria-label="Time remaining">00:30</output></div></div>
+      <figure class="memory-image-frame"><img id="round-image" alt="" decoding="async" draggable="false"></figure>
+    </section>
+
+    <section id="questions-screen" class="console memory-panel" hidden aria-labelledby="questions-title">
+      <div class="console-topline"><span id="questions-round"></span><span>QUESTIONS</span></div>
+      <div class="console-body">
+        <h2 id="questions-title" tabindex="-1">What do you remember?</h2>
+        <ol id="question-list" class="memory-questions"></ol>
+        <button id="answers-button" class="primary-button memory-action" type="button">NEXT <span aria-hidden="true">&#8594;</span></button>
+      </div>
+    </section>
+
+    <section id="answers-screen" class="console memory-panel" hidden aria-labelledby="answers-title">
+      <div class="console-topline"><span id="answers-round"></span><span>ANSWERS</span></div>
+      <div class="console-body">
+        <h2 id="answers-title" tabindex="-1">Answers</h2>
+        <ol id="answer-list" class="memory-answers"></ol>
+        <button id="hub-button" class="primary-button memory-action" type="button">BACK TO IMAGES <span aria-hidden="true">&#8594;</span></button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

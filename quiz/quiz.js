@@ -1,5 +1,5 @@
-import { quiz } from './quiz-data.js?v=quiz-02';
-import { createQuizSession } from './quiz-session.js?v=quiz-02';
+import { quiz } from './quiz-data.js?v=quiz-03';
+import { createQuizSession } from './quiz-session.js?v=quiz-03';
 
 const startScreen = document.querySelector('#start-screen');
 const questionScreen = document.querySelector('#question-screen');
