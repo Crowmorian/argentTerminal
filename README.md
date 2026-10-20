@@ -74,6 +74,22 @@ The page and key-page copy use Argent D'Nur, the Argenta Crown, Sentinel authori
 
 The three typefaces and their licenses are in `assets/fonts/`; system fallbacks remain available. Fonts and the rune are served locally, with no external asset requests. The site has no framework, build step, backend, analytics, accounts, or autoplay audio.
 
+## Halloween quiz
+
+The standalone quiz is at https://crowmorian.github.io/argentTerminal/quiz/. It reuses the site's dark metal framing, colors, and local fonts with plain quiz labels and no Sentinel flavor text. Its styles are in `quiz/quiz.css`; the existing terminal and key records keep their current layout.
+
+`quiz/quiz-data.js` contains all 15 supplied questions in order. Each question has an `id`, `text`, four `options`, and a zero-based `correctIndex` (`0` = A, `1` = B, `2` = C, `3` = D). The title is configured there too.
+
+- Start Quiz opens the first question.
+- Players choose one option. They can change that choice until pressing Next.
+- Next commits the current choice and advances without revealing correctness. There is no back button, and another choice is required for each new question.
+- Finish Quiz commits question 15 and opens the results on the same page.
+- Results show every question, a green check or red cross, and the selected answer. Incorrect entries also show the correct answer.
+- The final score appears beneath the review as `x out of y`. Play Again returns to a clean start screen.
+- A run exists only in that browser tab's memory; reloading starts a new run. There are no accounts or submissions to a server.
+
+Quiz content and logic use the independent `?v=quiz-01` asset tag. Bump it in the quiz HTML and module imports when changing quiz files to avoid stale cached versions. The static page needs no build step. Run `npm test` for data, locking, scoring, restart, and UI-handler checks.
+
 ## GitHub Pages
 
 The repository is https://github.com/Crowmorian/argentTerminal and Pages deploys from `main`, `/ (root)`. Push changes to `main` to trigger publication. All application links are relative, so repository Pages URLs and custom domains work. `.nojekyll` preserves plain static hosting.

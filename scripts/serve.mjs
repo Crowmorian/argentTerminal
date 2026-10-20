@@ -11,7 +11,8 @@ const allowed = new Set([
   'assets/slayer-rune.png', 'assets/fonts/barlow-condensed-600.woff2',
   'assets/fonts/cinzel-600.woff2', 'assets/fonts/ibm-plex-mono-400.woff2',
   'security/index.html', 'biolab/index.html', 'engineering/index.html',
-  'armory/index.html', 'command/index.html'
+  'armory/index.html', 'command/index.html',
+  'quiz/index.html', 'quiz/quiz.css', 'quiz/quiz.js', 'quiz/quiz-data.js', 'quiz/quiz-session.js'
 ]);
 const server = http.createServer(async (req, res) => {
   try {
